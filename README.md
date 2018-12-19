@@ -10,8 +10,8 @@
 #### 安装使用教程
 
 1. git clone https://github.com/210learnJS/shop_platform
-2. npm install
-3. cd shop_platform
+2. cd shop_platform
+3. npm install
 4. npm start
 
 #### 使用说明
