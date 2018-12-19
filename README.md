@@ -4,14 +4,15 @@
 简易购物平台 
 
 #### 软件架构
-后端koa 框架
+后端koa 框架，暂时使用自己封装的接口操作JSON文件模拟数据库操作
 
 
-#### 安装教程
+#### 安装使用教程
 
-1. git clone https://github.com/SherryLinqy/shopping-platform
+1. git clone https://github.com/210learnJS/shop_platform
 2. npm install
-3. npm start
+3. cd shop_platform
+4. npm start
 
 #### 使用说明
 
