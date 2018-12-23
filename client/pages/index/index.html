@@ -4,54 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link href="http://localhost:8888/pages/index/index.css" rel="stylesheet" type="text/css"/>
+    <title>首页</title>
 </head>
 <body>
-    <input type="text" placeholder="jfkas" id="input"/>
-    <input type="button" value="提交" id="1"/>
-    <a href="http://localhost:8888/pages/login/login.html" >登录</a>
-    <a href="http://localhost:8888/pages/registration/registration.html" >注册</a>
-    <div id="div"></div>
+    <h1>首页</h1>
 </body>
-<script src = "http://localhost:8888/util/constant.js"></script>
-<script src = "http://localhost:8888/util/http.js"></script>
-
-
-<script>
-var { PATH, PORT } = constant;
-   
-var butt=document.getElementById("1");
-butt.addEventListener("click",function(){
-var n = document.getElementById("input").value;
-n = Number(n, 10);
-http.get( PATH + "/search" , {id: n}, function(err, data){
-    if(!err){
-        console.log(data);
-        document.getElementById("div").innerHTML = "username:"+data.result[0].username+" password:"+data.result[0].password;
-    }
-});
-});
-   
-
-//    function ajax(id){
-//        var xhr = new XMLHttpRequest();
-//        xhr.onreadystatechange = function(){
-//            if(xhr.readyState == 4){
-//                if(xhr.status ==200 ){
-//                    var obj = JSON.parse(xhr.responseText);
-//                    console.log(obj);
-//                    document.getElementById("div").innerHTML = obj.result[0].username;
-//                }
-//                else{
-//                 alert("defalut");
-//                }
-               
-//            }
-//        }
-//        xhr.open("get","http://localhost:8094/search?id=" + id, true);
-//        xhr.send(null);
-//    }
-
-
-</script>
+    <script src = "http://localhost:8888/util/http.js"></script>
+    <script src = "http://localhost:8888/pages/index/index.js"></script>
 </html>

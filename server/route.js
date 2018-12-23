@@ -2,7 +2,7 @@ const Router = require("koa-router");
 
 const action = require("./controllers/action.js");
 
-const { index, add, del, update, search } = action;
+const { index, add, del, update, search, login } = action;
 
 //路由
 const route = Router();
