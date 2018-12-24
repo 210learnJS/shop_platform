@@ -66,7 +66,15 @@ function Database(filename = "data.json"){
             return false;
         }
         result.forEach(function(obj, i){
-            var databaseObj = that.tables[table].data[obj.id];
+            var databaseObj = {};
+            var arr = that.tables[table].data;
+            for(var i=0;i< arr.length;i++){
+                let o = arr[i];
+                if(o.id == obj.id){
+                    databaseObj = o;
+                    break;
+                }
+            }
             for(var o in change){
                 if(typeof obj[o] != 'undefined'&&o!=="id"){
                     databaseObj[o] = change[o];

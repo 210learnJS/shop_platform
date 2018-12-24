@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+ <input type="text" placeholder="请输入用户名" id="userName">
+ <input type="text" placeholder="请输入密码" id="password">
+ <input type="button" value="提交" id="1"/> 
+</body>
+<script src="http://localhost:8094/constant.js"></script>
+<script src="http://localhost:8094/httpRequest/httpCallback.js"></script>
+<!-- <script src="http://localhost:8094/httpRequest/httpPromise.js"></script> -->
+<script>
+    function successRes(result){
+        var res = {
+            result: result,
+            status: {
+                code: 1,
+                msg: "success"
+            }
+        };
+        return res;
+    }
+    function errorRes(result){
+        var res = {
+            result: result,
+            status: {
+                code: 0,
+                msg: "fail"
+            }
+        };
+        return res;
+    }
+    
+</script>
+<script>
+    const { PATH } = constant;
+    var butt=document.getElementById('1');
+    var http = new Http();
+    butt.addEventListener("click", function(){
+        var userName = document.getElementById("userName").value;
+        var password = document.getElementById("password").value;
+        // 回调函数版
+        var data={
+            username: userName,
+            password: password
+        };
+        // http.get(PATH + "/add", data, function(err, data){
+        //     if(err){
+        //         console.error(err);
+        //         return;
+        //     }
+        //     console.log(data);
+        // });
+
+        // data={
+        //     id: userName
+        // };
+        // http.get(PATH + "/del", data, function(err, data){
+        //     if(err){
+        //         console.error(err);
+        //         return;
+        //     }
+        //     console.log(data);
+        // });
+
+        data={
+            username: userName,
+            password: password
+        };
+        http.get(PATH + "/update", data, function(err, data){
+            if(err){
+                console.error(err);
+                return;
+            }
+            console.log(data);
+        });
+
+        // promise版
+        // var data={
+        //     username: userName,
+        //     //password:password
+        // };
+        // http.jsonp(PATH + "/search", data)
+        // .then((obj) =>{
+        //     console.log("1",obj);
+
+        // }).catch(err => console.log(err))
+    });
+</script>
+</html>
