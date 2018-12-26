@@ -1,0 +1,35 @@
+{
+    "pages": {
+        "login":{
+            "/login":{
+                "接口名称":"/login",
+                "作用":"用来验证登录信息是否为已经注册的用户",
+                "参数":{
+                    "username":"String",
+                    "password":"String"
+                },
+                "http方法":"POST",
+                "响应":{
+                    "OK": "Boolean",
+                    "errorInf":"密码错误",
+                    "passwordOK": true
+                },
+                "说明":""
+            }
+        },
+        "index":{
+            "/getUser":{
+                "接口名称":"/getDAta",
+                "作用":"用来获取数据",
+                "参数":{
+                    "userId":"Number"
+                },
+                "http方法":"get",
+                "响应":{
+                    "": ""
+                },
+                "说明":""
+            }
+        }
+    }
+}
