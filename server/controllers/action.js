@@ -45,6 +45,18 @@ function getRequst(ctx){
 	return outputObj;
 }
 
+
+//添加
+async function link(ctx, next){ 
+	try{
+		ctx.response.type = 'html';
+		ctx.body = fs.createReadStream('./client/pages/test/link.html');
+	}catch(err){
+		console.error(err);
+		return ctx.body = errorRes('', `${err}`);
+	} 
+}
+
 //添加
 async function add(ctx, next){ 
   	try{
@@ -165,5 +177,6 @@ module.exports = {
 	update: update,
 	search: search,
 	login: login,
+	link: link,
 	uploadImg: uploadImg
 };
