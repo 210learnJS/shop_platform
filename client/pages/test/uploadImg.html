@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>image upload</title>
+	<script src="http://localhost:8888/static/jquery-3.3.1.min.js"></script>
+	<script src="http://localhost:8888/static/jquery.form.js"></script>
+</head>
+<body>
+	<h1>image upload</h1>
+	<p>先选择本地图片（仅支持.png、.jpeg和.jpg），加载成功后点击提交，下方即可显示上传自服务器的图片。</p>
+	<form action="/uploadImg"  id="form" method="POST" enctype="multipart/form-data" onsubmit="return false;"> 
+		<input type="file" id="file" name="imgfile" multiple> 
+		<input type="submit" id="submit" value="提交"> 
+	</form>
+	<img id="imgContent" src=""/>
+</body>
+
+<script type="text/javascript">
+var button = document.getElementById("submit");
+var fileNode = document.getElementById("file");
+
+fileNode.addEventListener("change",function(event){
+	var e = event||window.event;
+	var file = e.target.files[0];
+	var suffixName = file.type.split("/").pop().toLowerCase();
+	if(!(suffixName=="png"||suffixName=="jpg"||suffixName=="jpeg")){
+		alert("图片仅能上传png、jpg、jpeg等图像格式");
+	}
+	console.log(file);
+});
+button.addEventListener("click",function(){
+	$("#form").ajaxSubmit(function(data) {
+        console.log(data);
+        if(data.status.code==0){
+            alert(data.result);
+            return;
+        }
+		var img = document.getElementById("imgContent");
+		img.src = data.result.filename;
+	}); 
+});
+</script>
+</html>
