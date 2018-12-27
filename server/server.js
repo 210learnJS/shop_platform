@@ -9,12 +9,14 @@ const constant = require('./constants/constant.js');
 const route = require('./route.js');
 
 const SERVER_PORT = constant.SERVER_PORT;
+
 const app = new Koa();
 // 静态资源目录对于相对入口文件index.js的路径
-const staticPath = '../client'
+const staticPath = '../client';
+
 app.use(static(
   path.join( __dirname,  staticPath)
-))
+));
 
 app.use(Logger());
 app.use(Bodyparser({

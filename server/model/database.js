@@ -133,46 +133,4 @@ function Database(filename = "data.json"){
     }
 }
 
-
-// var database = new Database('data.json');
-// database.startDatabase(function(){
-//     var table2 = "compute";
-//     var person2 = {
-//         "name": "lenovo",
-//         "price": 4000,
-//         "interface": ["USB", "HDMI"],
-//         "size": 16
-//     }
-    // database.addTable(table2, {
-    //     "name": "",
-    //     "price": 0,
-    //     "interface": [],
-    //     "size": 15
-    // });
-
-    // database.add(table2, person2, function(err, data){
-    //     if(err){
-    //         console.error(err);
-    //         return;
-    //     }
-    //     console.log(147, data);
-    // });
-
-    // database.search(table2, {"id": 3}, function(err, data){
-    //     if(err){
-    //         console.error(err);
-    //         return;
-    //     }
-    //     console.log(data);
-    // });
-
-    // database.del(table2, {"id": 5}, function(err, data){
-    //     if(err){
-    //         console.error(err);
-    //         return;
-    //     }
-    //     console.log(data);
-    // });
-// });
-
 module.exports = Database;

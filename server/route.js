@@ -2,7 +2,7 @@ const Router = require("koa-router");
 
 const action = require("./controllers/action.js");
 
-const { index, add, del, update, search, login } = action;
+const { index, add, del, update, search, login, getcommentList,addComment,delComment } = action;
 
 //路由
 const route = Router();
@@ -25,5 +25,9 @@ route.get('/search', search);
 //search
 route.get('/login', login);
 route.post('/login', login);
+
+route.get('/getComment',getcommentList);
+route.get('/addComment',addComment);
+route.get('/delComment',delComment);
 
 module.exports = route;
