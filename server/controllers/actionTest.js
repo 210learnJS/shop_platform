@@ -101,9 +101,14 @@ async function login(ctx, next) {
 }
 
 //评论部份数据库
-async function getcommentList(ctx, next) {
+async function getMysql(ctx, next) {
   try {
-    const result = await mysql.searchCommentMySQL("new_table");
+    let param=ctx.request.query;
+    const result = await mysql.search({
+              name: "comment",
+              tr: "comment_id",
+              td: "1",        
+          });
     const response = result.length > 0 ? successRes(result) : errorRes('搜索数据失败');
     ctx.body = response;
     return result;
@@ -113,10 +118,10 @@ async function getcommentList(ctx, next) {
   }
 
 }
-async function addComment(ctx, next) {
+async function addMysql(ctx, next) {
   try {
     let param=ctx.request.query;
-    const result = await mysql.insertCommentMySQL(`${param.goods_id}`,param);
+    const result = await mysql.insert(param);
     const response = result ? successRes(result) : errorRes('添加数据失败');
     ctx.body = response;
     return result;
@@ -124,14 +129,12 @@ async function addComment(ctx, next) {
     console.log(err);
     return ctx.body = errorRes('', `${err}`);
   }
-  let result = await mysql.insertCommentMySQL(goods_id, Comment);
-  console.log(result);
-  return result;
+  
 }
-async function delComment(ctx, next) {
+async function delMysql(ctx, next) {
   try{
     let param=ctx.request.query;
-    const result=await mysql.delCommentMySQL(param.goods_id, param.userId);
+    const result=await mysql.del(param);
     const response=result?successRes(result):errorRes("删除失败");
     ctx.body=response;
     return result;
@@ -149,7 +152,7 @@ module.exports = {
   update: update,
   search: search,
   login: login,
-  getcommentList: getcommentList,
-  addComment: addComment,
-  delComment: delComment
+  getMysql: getMysql,
+  addMysql: addMysql,
+  delMysql: delMysql
 };

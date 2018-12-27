@@ -2,7 +2,7 @@
  * @Author: GuoWei
  * @Date: 2018-12-25 22:20:04
  * @LastEditors: GuoWei
- * @LastEditTime: 2018-12-27 14:40:33
+ * @LastEditTime: 2018-12-27 14:55:19
  * @Description: 
  */
 const mysql = require('mysql');
@@ -42,7 +42,7 @@ connection.connect();
 
 //     }
 // };
-async function searchMySQL(table) {
+async function search(table) {
     var sql = `SELECT * FROM comment where ${table.tr}=${table.td}`
     let result = undefined;
     result = await new Promise((resolve, reject) => {
@@ -56,7 +56,7 @@ async function searchMySQL(table) {
     });
     return result;
 }
-async function insertMySQL(table) {
+async function insert(table) {
 
     /********** *处理传入的数据***********/
     let dataList = Object.getOwnPropertyNames(table.data);     //存储属性名
@@ -83,7 +83,7 @@ async function insertMySQL(table) {
 
     return result;
 }
-async function delMySQL(table) {
+async function del(table) {
     let delSql = `DELETE FROM ${table.name} where ${table.tr}=${table.td}`;
     let result = undefined;
     result = new Promise((resolve, reject) => {
@@ -124,6 +124,6 @@ async function delMySQL(table) {
 // getcomment();
 // connection.end();
 module.exports = {
-    searchMySQL, insertMySQL, delMySQL
+    search, insert, del
 }
 

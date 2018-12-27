@@ -1,8 +1,8 @@
 const Router = require("koa-router");
 
-const action = require("./controllers/action.js");
+const action = require("./controllers/actionTest.js");
 
-const { index, add, del, update, search, login, getcommentList,addComment,delComment } = action;
+const { index, add, del, update, search, login, getMysql,addMysql,delMysql } = action;
 
 //路由
 const route = Router();
@@ -26,8 +26,8 @@ route.get('/search', search);
 route.get('/login', login);
 route.post('/login', login);
 
-route.get('/getComment',getcommentList);
-route.get('/addComment',addComment);
-route.get('/delComment',delComment);
+route.get('/getMysql',getMysql);
+route.get('/addMysql',addMysql);
+route.get('/delMysql',delMysql);
 
 module.exports = route;
