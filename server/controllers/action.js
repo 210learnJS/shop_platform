@@ -101,11 +101,31 @@ async function login(ctx, next){
   }
 }
 
+
+//商品详情页
+async function goods(ctx, next){
+  try{
+    let param = ctx.request.query;
+    var obj = {
+        id: param.id,
+    }
+    const result = await DB.search(USER_TABLE, obj);
+    const response = result.length>0?successRes(result):errorRes('搜索数据失败');
+    console.log("search result: ", result);
+    ctx.body = response;
+    return result;
+  }catch(err){
+    console.log(err);
+    return ctx.body = errorRes('', `${err}`)
+  }
+}
+
 module.exports = {
   index: index,
   add: add,
   del: del,
   update: update,
   search: search,
-  login: login
+  login: login,
+  goods: goods
 };
