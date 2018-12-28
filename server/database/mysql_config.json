@@ -1,9 +1,13 @@
 {
-    "comment": {
+    "DB": {
         "host": "127.0.0.1",
         "user": "root",
         "password": "MySQL0210",
         "database": "shopplatform"
+    },
+    "tableList":{
+        "goodsTable":"goods_table",
+        "commentTable":"comment"
     }
     
 }

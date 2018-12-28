@@ -4,7 +4,7 @@ const mysql = require("../database/mysql.js");
 const Res = require('../util/res.js');
 const { successRes, errorRes } = Res;
 const { USER_TABLE } = require('../constants/constant.js');
-
+const { goodsTable, commentTable } = JSON.parse(fs.readFileSync("./server/database/mysql_config.json")).tableList;
 
 function getRequst(ctx) {
   ctx.set('Access-Control-Allow-Origin', '*');
@@ -45,16 +45,30 @@ async function login(ctx, next) {
     }
     const result = await mysql.search(USER_TABLE, obj);
     const response = result ? successRes(result) : errorRes('搜索数据失败');
-    if (result.password === param.password){
+    if (result.password === param.password) {
       ctx.body = response;
       return true;
     }
-    else{
+    else {
       return false;
-    }  
+    }
   } catch (err) {
     console.log(err);
     return ctx.body = errorRes('', `${err}`)
+  }
+}
+//商品详情页
+async function getGoodsInfo(ctx, next) {
+  try {
+    const { param } = getRequst(ctx);
+    const table = goodsTable;
+    const result = await mysql.search(table, param);
+    const response = result ? successRes(result) : errorRes('搜索数据失败');
+    ctx.body = response;
+    return result;
+  } catch (err) {
+    console.log(err);
+    return ctx.body = errorRes('', `${err}`);
   }
 }
 
@@ -62,10 +76,11 @@ async function login(ctx, next) {
 async function getComment(ctx, next) {
   try {
     const { param } = getRequst(ctx);
-    console.log(param);
-    const table = "comment";
+    // console.log(param);
+    const table = commentTable;
+    // console.log(table);
     const result = await mysql.search(table, param);
-    const response = result > 0 ? successRes(result) : errorRes('搜索数据失败');
+    const response = result ? successRes(result) : errorRes('搜索数据失败');
     ctx.body = response;
     return result;
   } catch (err) {
@@ -77,7 +92,7 @@ async function addComment(ctx, next) {
   try {
     const { param } = getRequst(ctx);
     console.log(param);
-    const table = "comment";
+    const table = commentTable;
     const result = await mysql.insert(table, param);
     const response = result ? successRes(result) : errorRes('添加数据失败');
     ctx.body = response;
@@ -91,7 +106,7 @@ async function addComment(ctx, next) {
 async function delComment(ctx, next) {
   try {
     const { param } = getRequst(ctx);
-    const table = "comment";
+    const table = commentTable;
     const result = await mysql.del(table, param);
     const response = result ? successRes(result) : errorRes("删除失败");
     ctx.body = response;
@@ -134,5 +149,6 @@ module.exports = {
   getComment,
   addComment,
   delComment,
-  uploadImg
+  uploadImg,
+  getGoodsInfo
 };

@@ -2,7 +2,7 @@
  * @Author: GuoWei
  * @Date: 2018-12-25 22:20:04
  * @LastEditors: GuoWei
- * @LastEditTime: 2018-12-28 09:34:50
+ * @LastEditTime: 2018-12-28 11:19:35
  * @Description: 
  */
 const mysql = require('mysql');
@@ -15,7 +15,7 @@ async function init() {
 const sqlConfig = JSON.parse(fs.readFileSync("./server/database/mysql_config.json"));
 // const sqlConfig = JSON.parse(fs.readFileSync("./mysql_config.json"));
 
-var connection = mysql.createConnection(sqlConfig.comment);
+var connection = mysql.createConnection(sqlConfig.DB);
 
 connection.connect();
 // var sql = `SELECT * FROM comment where comment_id=1`;
@@ -82,8 +82,8 @@ let formSQL = {
 
 async function insert(table, data) {
     var { addSql, addSqlParams } = formSQL.Insert(arguments);
-    console.log(addSql);
-    console.log(addSqlParams);
+    // console.log(addSql);
+    // console.log(addSqlParams);
     let result = await new Promise((resolve, reject) => {
         connection.query(addSql, addSqlParams, function (err, result) {
             if (err) {
@@ -93,7 +93,7 @@ async function insert(table, data) {
             resolve(result);
         })
     });
-    connection.end();
+ 
     return result;
 }
 async function del(table, data) {
@@ -107,22 +107,23 @@ async function del(table, data) {
             resolve(result);
         })
     });
-    connection.end();
+
     return result;
 }
 async function search(table, data) {
     var { sql } = formSQL.search(table, data);
+    console.log("sql: "+sql);
     let result = undefined;
     result = await new Promise((resolve, reject) => {
         connection.query(sql, function (err, result) {
             if (err) {
-                reject(new Error("INSERT ERROR"));
+                reject(new Error("SEARCH ERROR"));
 
             }
             resolve(result);
         })
     });
-    connection.end();
+    console.log(result);
     return result;
 }
 
