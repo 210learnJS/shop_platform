@@ -2,7 +2,7 @@
  * @Author: GuoWei
  * @Date: 2018-12-25 22:20:04
  * @LastEditors: GuoWei
- * @LastEditTime: 2018-12-27 14:55:19
+ * @LastEditTime: 2018-12-28 09:34:50
  * @Description: 
  */
 const mysql = require('mysql');
@@ -42,8 +42,76 @@ connection.connect();
 
 //     }
 // };
-async function search(table) {
-    var sql = `SELECT * FROM comment where ${table.tr}=${table.td}`
+
+tableList = {
+    "comment": ["comment_id", "goods_id", "goods_name", "user_id", "user_name", "parent_comment_id", "comment_detail", "comment_date"]
+}
+
+let formSQL = {
+    Insert: function (table, data) {
+        let addSqlParams = [];
+        for (let i in data) {
+            addSqlParams.push(data[i]);
+        }
+        let out = {
+            addsql: `INSERT INTO ${table}(${tableList[table].toString()}) VALUES(?,?,?,?,?,?,?,?)`,
+            addSqlParams
+        }
+        return out;
+    },
+    del: function () {
+        let delsql = "";
+        if (data) {
+            for (let i in data) {
+                delsql = `DELETE * FROM ${table} where ${i}=${data[i]}`;
+            }
+        }
+        return { delSql };
+    },
+    search: function (table, data) {
+        let sql = "";
+        if (data) {
+            for (let i in data) {
+                sql = `SELECT * FROM ${table} where ${i}=${data[i]}`;
+            }
+        }
+        // console.log(sql);
+        return { sql };
+    }
+}
+
+async function insert(table, data) {
+    var { addSql, addSqlParams } = formSQL.Insert(arguments);
+    console.log(addSql);
+    console.log(addSqlParams);
+    let result = await new Promise((resolve, reject) => {
+        connection.query(addSql, addSqlParams, function (err, result) {
+            if (err) {
+                reject(new Error("INSERT ERROR"));
+                return;
+            }
+            resolve(result);
+        })
+    });
+    connection.end();
+    return result;
+}
+async function del(table, data) {
+    let { delSql } = formSQL.del(table, data);
+    let result = undefined;
+    result = new Promise((resolve, reject) => {
+        connection.query(delSql, function (err, result) {
+            if (err) {
+                reject(new Error("DELETE ERROR"));
+            }
+            resolve(result);
+        })
+    });
+    connection.end();
+    return result;
+}
+async function search(table, data) {
+    var { sql } = formSQL.search(table, data);
     let result = undefined;
     result = await new Promise((resolve, reject) => {
         connection.query(sql, function (err, result) {
@@ -54,51 +122,9 @@ async function search(table) {
             resolve(result);
         })
     });
+    connection.end();
     return result;
 }
-async function insert(table) {
-
-    /********** *处理传入的数据***********/
-    let dataList = Object.getOwnPropertyNames(table.data);     //存储属性名
-    let keyStr = [],          //存储属性值？的个数
-        valueStr = [];        //存储属性值
-    for (let i = 0; i < dataList.length; i++) {
-        keyStr.push("?");
-        valueStr.push(table.data[dataList[i]]);
-    }
-
-    var addSql = `INSERT INTO ${table.name}(${dataList.toString()}) VALUES(${keyStr.toString()})`;
-    var addSqlParams = valueStr;
-// console.log(addSql);
-// console.log(addSqlParams);
-    let result = await new Promise((resolve, reject) => {
-        connection.query(addSql, addSqlParams, function (err, result) {
-            if (err) {
-                reject(new Error("INSERT ERROR"));
-
-            }
-            resolve(result);
-        })
-    });
-
-    return result;
-}
-async function del(table) {
-    let delSql = `DELETE FROM ${table.name} where ${table.tr}=${table.td}`;
-    let result = undefined;
-    result = new Promise((resolve, reject) => {
-        connection.query(delSql, function (err, result) {
-            if (err) {
-                reject(new Error("DELETE ERROR"));
-            }
-            resolve(result);
-        })
-    });
-
-    return result;
-}
-
-
 
 // async function getcomment() {
 //     const result = await insertMySQL({
