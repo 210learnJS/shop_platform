@@ -24,5 +24,7 @@ route.get('/delComment', delComment);
 route.get('/goodsInfo', getGoodsInfo);
 //uploadImg
 route.post('/uploadImg', uploadImg);
+//search
+// route.post('/goods',goods)
 
 module.exports = route;

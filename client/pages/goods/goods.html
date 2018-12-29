@@ -5,11 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="http://localhost:8888/pages/goods/goods.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost:8888/comment/comment.css">
     <title>商品详情页</title>
 </head>
 <body>
     <h1>商品详情页</h1>
+    <div id = 'header'>
+        <div id='header-logo'></div>
+        <div id = 'header-nav'>
+        </div>
+    </div>
+    <div id = 'goodMain' class="container">
+        <div class="up">
+            <div class = 'left'>
+                <div class = 'bigImg'>
+                    <img class='bigImgItem' id='bigImgItem' src="http://localhost:8888/pages/goods/imgs/goodsimg1.png"> 
+                    <div id = 'move'></div>
+                    <div id = 'getBig'>
+                        
+                    </div>
+                </div>
+                <div class = 'smallImg' id="smallImg"></div>
+            </div>
+            <div class = 'right'>
+                <section class = 'goods-name-panel'>
+                    <span id='goodsName'></span>
+                </section>
+                <section class = 'goods-price-panel'>
+                    <span>价格</span>
+                    <div class="goods-pirce-style" id="goodsPrice"></div>
+                </section>
+                <section class = 'fare-panel'>
+                    <span>运费</span>
+                    <div class="fare-region-select">
+                        <span class='send-place' id='goodsPlace'></span>
+                        <span>&nbsp至&nbsp</span>
+                        <span> 江苏 南京<span class="triangle"> </span>&nbsp快递：<span>10</span>
+                    </div>
+                </section>
+                <section class="select-panel">
+                    <div class="item-panel">
+                        <span>颜色</span>
+                        <div class="select-area" id ='color-select'></div>                
+                    </div>
+                    <div class="item-panel">
+                        <span>类型</span>
+                        <div class="select-area" id='size-select'></div>
+                    </div>
+                    <div class="item-panel">
+                        <span>数量</span>
+                        <div class="select-area" id = 'num-select'>
+                            <input type="text" value='1' class="goods-num" id="goods-num">
+                            <div class="up-down">
+                                <span  class="glyphicon glyphicon-chevron-up" id="goods-num-up"></span>
+                                <span class="glyphicon glyphicon-chevron-down" id="goods-num-down"></span>
+                            </div>
+                            <span>&nbsp&nbsp件</span>
+                        </div>
+                    </div>
+                    <div class = 'buy-panel'>
+                        <img src ='http://localhost:8888/pages/goods/imgs/buynow.png'  id='buyNow'>
+                        <img src ='http://localhost:8888/pages/goods/imgs/addin.png' id = 'addInto'>
+                    </div>
+                </section>
+                      
+            </div>
+                    
+        </div>
+        <div class="down">
+            评论区域
+        </div>
+    </div>
+    <div id = 'comment_box'></div>
 </body>
-    <script src = "http://localhost:8888/util/http.js"></script>
-    <script src = "http://localhost:8888/pages/goods/goods.js"></script>
+    
+    <script type= 'text/javascript' src = "http://localhost:8888/util/constant.js"></script>
+    <script type= 'text/javascript' src = "http://localhost:8888/util/http.js"></script>
+    <script type= 'text/javascript' src = "http://localhost:8888/comment/comment.js"></script>
+    <script type= 'text/javascript' src = "http://localhost:8888/pages/goods/goods.js"></script>
+    <!-- <script>
+        var script = document.createElement("script");
+        script.src = constant.PATH+"/util/http.js";
+        document.body.appendChild(script);
+        script = document.createElement("script");
+        script.src = constant.PATH+"/pages/goods/goods.js";;
+        document.body.appendChild(script);
+    </script> -->
 </html>

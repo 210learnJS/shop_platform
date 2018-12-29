@@ -2,7 +2,7 @@
  * @Author: GuoWei
  * @Date: 2018-12-25 22:20:04
  * @LastEditors: GuoWei
- * @LastEditTime: 2018-12-28 11:19:35
+ * @LastEditTime: 2018-12-29 20:09:51
  * @Description: 
  */
 const mysql = require('mysql');
@@ -112,7 +112,6 @@ async function del(table, data) {
 }
 async function search(table, data) {
     var { sql } = formSQL.search(table, data);
-    console.log("sql: "+sql);
     let result = undefined;
     result = await new Promise((resolve, reject) => {
         connection.query(sql, function (err, result) {
@@ -123,7 +122,7 @@ async function search(table, data) {
             resolve(result);
         })
     });
-    console.log(result);
+    console.log("成功拿到数据"+result);
     return result;
 }
 

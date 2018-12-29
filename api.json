@@ -1,35 +1,29 @@
 {
     "pages": {
-        "login":{
-            "/login":{
-                "接口名称":"/login",
-                "作用":"用来验证登录信息是否为已经注册的用户",
+        "goods":{
+            "/getGoodsInfo":{
+                "接口名称":"/goodsInfo",
+                "作用":"用来请求商品信息",
                 "参数":{
-                    "username":"String",
-                    "password":"String"
+                    "goodsId":"Number"
                 },
                 "http方法":"POST",
                 "响应":{
-                    "OK": "Boolean",
-                    "errorInf":"密码错误",
-                    "passwordOK": true
-                },
-                "说明":""
-            }
-        },
-        "index":{
-            "/getUser":{
-                "接口名称":"/getDAta",
-                "作用":"用来获取数据",
-                "参数":{
-                    "userId":"Number"
-                },
-                "http方法":"get",
-                "响应":{
-                    "": ""
+                    "goodsName" : "天猫精灵 智能音箱AI语音助手蓝牙无线WiFi音响",
+                    "goodsSinglePrice" : 99.00,
+                    "goodsFare" : 10,
+                    "goodsPlace" :"浙江杭州",
+                    "goodsColor" : ["红色","黑色"],
+                    "goodsSize" : ["联通版","电信版"],
+                    "goodsImgUrl" : ["http://localhost:8888/pages/goods/imgs/goodsimg1.png",
+                                   "http://localhost:8888/pages/goods/imgs/goodsimg2.png",
+                                   "http://localhost:8888/pages/goods/imgs/goodsimg3.png",
+                                   "http://localhost:8888/pages/goods/imgs/goodsimg4.png",
+                                   "http://localhost:8888/pages/goods/imgs/goodsimg5.png"]
+
                 },
                 "说明":""
             }
         }
-    }
+    }   
 }

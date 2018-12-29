@@ -1,0 +1,169 @@
+
+.container{
+    display: flex;
+    flex-flow: column;
+
+}
+/*左边评论*/
+.up{
+    display: flex;
+    flex-flow: row;
+    vertical-align: center;
+}
+.left{
+    width:600px;
+ 
+    margin: 20px;
+}
+.bigImg{
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+}
+.bigImgItem{
+    width: 400px;
+    height: 400px;
+}
+.smallImg{
+    margin-top: 10px;
+    height: 72px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.smallImgItem{  
+    margin-left:15px; 
+    width: 60px;
+    height: 60px;  
+    border: 1px solid transparent;  
+}
+
+
+.smallImghover{
+    border: 1px solid black;
+}
+
+/*右边*/
+.right{
+    width: 800px;
+    margin: 20px;
+    display: flex;
+    flex-flow: column;
+}
+/*右边组件设置*/
+
+/*商品名称*/
+.goods-name-panel{ 
+    font-size: 25px;
+    font-family:"微软雅黑";
+    font-weight:bold;
+    margin-left:10px; 
+}
+/*商品价格样式*/
+.goods-price-panel{
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(233, 231, 231);
+    margin:10px; 
+    display: flex;
+    flex-flow: row;
+}
+.goods-pirce-style{
+    line-height: 50px;
+    height: 50px;
+    margin-left:50px; 
+    color:rgb(233, 6, 6); 
+    font-size: 30px;
+    font-family: '微软雅黑';
+    font-weight:bold;
+    
+}
+/*商品运费样式*/
+.fare-panel{
+    line-height: 50px;
+    margin:10px; 
+    display: flex;
+    flex-flow: row;
+    height: 50px;
+}
+.fare-region-select{
+    margin-left: 50px;
+    display: flex;
+    flex-flow: row; 
+}
+/*下拉箭头*/
+.triangle {
+    margin-top: 10px;
+    font-size: 0;
+    line-height: 0;
+    border-width: 8px;
+    border-color:black;
+    border-bottom-width: 0;
+    border-style: dashed;
+    border-top-style: solid;
+    border-left-color: transparent;
+    border-right-color: transparent;   
+}
+/*商品选择区域*/
+.select-panel{
+    display: flex;
+    flex-flow: column;
+}
+.item-panel{
+    display: flex;
+    flex-flow: row;
+    height: 50px;
+    line-height: 50px;
+    margin:10px; 
+}
+
+
+.select-area{ 
+    margin-left: 50px;
+    display: flex;
+    flex-flow: row;
+}
+.select-item{
+ 
+    border: 2px solid rgb(182, 180, 180);
+    height: 50px;
+    line-height: 50px;
+    margin-right:10px; 
+}
+.block-style{
+    margin-left: 10px;
+    margin-right:10px; 
+}
+/*购买数量*/
+.goods-num{
+  width: 60px;
+}
+.up-down{
+    display: flex;
+    flex-flow: column;
+    margin-top: 5px;
+    margin-left:5px; 
+}
+
+
+.buy-panel{
+    margin-left: 8px;
+    margin-top: 10px;
+}
+.buy-panel a{
+    margin-right:10px; 
+}
+
+/*悬浮以及选中的样式改变*/
+.hoverStyle{
+    border: 2px solid red;
+    cursor:pointer;
+}
+.clickStyle{
+    border: 2px solid red;
+    
+}
+
+.down{
+    border: 1px solid red;
+    height: 40px;
+}

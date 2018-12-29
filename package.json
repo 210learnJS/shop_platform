@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "start": "node server/server.js",
-    "test": "node server/database/comment.js"
+    "test": "node server/controllers/actionTest.js"
   },
   "author": "Lin",
   "license": "ISC",

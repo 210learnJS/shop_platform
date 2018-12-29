@@ -35,7 +35,16 @@ function getRequst(ctx) {
   };
   return outputObj;
 }
-
+//将字符串转换为数组
+function transAry(obj,attributeList){
+  for(let i=0;i<attributeList.length;i++){ 
+    // console.log(obj[0]);
+    //  console.log(obj[0][attributeList[i]]);
+     obj[0][attributeList[i]]=obj[0][attributeList[i]].split(",");
+    //  console.log(typeof obj[0][attributeList[i]]);
+  }
+  return obj;
+  }
 //登录
 async function usernameExist(ctx, next) {
   try {
@@ -72,9 +81,12 @@ async function login(ctx, next) {
 //商品详情页
 async function getGoodsInfo(ctx, next) {
   try {
+  
     const { param } = getRequst(ctx);
     const table = goodsTable;
-    const result = await mysql.search(table, param);
+    let result = await mysql.search(table, param);
+    result=transAry(result,["goodsColor","goodsSize","goodsImgUrl"]);
+    console.log(result);
     const response = result ? successRes(result) : errorRes('搜索数据失败');
     ctx.body = response;
     return result;
