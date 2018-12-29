@@ -32,8 +32,8 @@ btn.addEventListener('click',function(){
             //     alert("用户名不存在或密码错误，请重新输入");
             // }
             if(!err){
-                if(data.usernameExist){
-                   if(data.passwordOk){
+                if(data.result.usernameExist){
+                   if(data.result.passwordOk){
                     window.location.href = 'http://localhost:8888/pages/index/index.html';
                    }else{
                        tips.innerHTML = "密码错误";
