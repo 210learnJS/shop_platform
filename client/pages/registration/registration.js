@@ -20,6 +20,9 @@ var register = {
         }else{
             element["on"+type]=handler;
         }
+    },
+    validateUsername: function(){
+        
     }
 
 };
@@ -32,5 +35,9 @@ for(var i=0;i<ipt.length;i++){
         })
     })(i);
     register.addEventHandler(ipt[i],"blur",check);
-
+}
+function check(){
+    if(this.name ==="username"){
+        this.value.
+    }
 }

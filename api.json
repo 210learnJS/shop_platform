@@ -10,9 +10,25 @@
                 },
                 "http方法":"POST",
                 "响应":{
-                    "OK": "Boolean",
-                    "errorInf":"密码错误",
-                    "passwordOK": true
+                    "usernameExist": "Boolean",
+                    "passwordOK": "Boolean"
+                },
+                "说明":""
+            }
+        },
+        "registration":{
+            "/registration":{
+                "接口名称":"/register",
+                "作用":"注册用户信息",
+                "参数":{
+                    "username":"String",
+                    "phone":"String",
+                    "password":"String"
+                },
+                "http方法":"POST",
+                "响应":{
+                    "usernameExist": "Boolean",
+                    "passwordOK": "Boolean"
                 },
                 "说明":""
             }

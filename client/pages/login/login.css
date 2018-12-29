@@ -41,7 +41,12 @@
     font-weight: 700;
     color: #3c3c3c;
 }
-
+.warn{
+    color: red;
+    font-size: 14px;
+    line-height: 14px;
+    margin-top:12px; 
+}
 .login-account,
 .login-password{
     position: relative;
