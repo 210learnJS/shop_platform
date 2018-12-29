@@ -5,6 +5,7 @@
                 "接口名称":"/goodsInfo",
                 "作用":"用来请求商品信息",
                 "参数":{
+                    
                     "goodsId":"Number"
                 },
                 "http方法":"POST",
@@ -29,7 +30,7 @@
                 "作用":"用来返回购买商品信息",
                 "参数":{
                     "goodsId":"Number",
-                    "userID" : "Number",
+                    
                     "goodsColor" : "String",
                     "goodsType" : "String",
                     "goodsNum" : "Number"
