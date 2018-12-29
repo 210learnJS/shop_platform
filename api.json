@@ -27,8 +27,7 @@
                 },
                 "http方法":"POST",
                 "响应":{
-                    "usernameExist": "Boolean",
-                    "passwordOK": "Boolean"
+                    "success": "Boolean"
                 },
                 "说明":""
             }

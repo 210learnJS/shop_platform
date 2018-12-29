@@ -75,20 +75,12 @@ table{
     border-radius: 2px;
     color: #333;
 }
+
 .register-box .text:focus {
     color: #505050;
     border-color: #969696;
 }
-.icon-yes,
-.icon-wrong{
-    margin-top: 14px;
-    width: 16px;
-    height: 16px;
-    background: url(../registration/icon.png) 0 -40px no-repeat;
-} 
-/* .register-box .warn {
-    color: #787878;
-} */
+
 .register-box .cue{
     color: #787878;
     font-size: 12px;
