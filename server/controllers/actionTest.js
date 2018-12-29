@@ -37,7 +37,7 @@ function getRequst(ctx) {
 }
 
 //登录
-async function login(ctx, next) {
+async function usernameExist(ctx, next) {
   try {
     const { param } = getRequst(ctx);
     var obj = {
@@ -45,17 +45,29 @@ async function login(ctx, next) {
     }
     const result = await mysql.search(USER_TABLE, obj);
     const response = result ? successRes(result) : errorRes('搜索数据失败');
-    if (result.password === param.password) {
-      ctx.body = response;
-      return true;
+    return response;
+  } catch (err) {
+    return err;
+  }
+}
+async function login(ctx, next) {
+  try {
+    const { param } = getRequst(ctx);
+    let response = usernameExist.apply(this, arguments);
+    if (response.status.code == 1) {
+      if (response.result.password == param.password) {
+        ctx.body = successRes(true);
+      }
+      else {
+        ctx.body = errorRes("密码错误");
+      }
     }
     else {
-      return false;
+      ctx.body = response;
     }
-  } catch (err) {
-    console.log(err);
-    return ctx.body = errorRes('', `${err}`)
-  }
+}catch(err){
+  return console.log(err);
+}
 }
 //商品详情页
 async function getGoodsInfo(ctx, next) {
@@ -117,6 +129,8 @@ async function delComment(ctx, next) {
     return ctx.body = errorRes('', `${err}`);
   }
 }
+
+//其他
 async function uploadImg(ctx, next) {
   try {
     console.log(ctx.request.files);
