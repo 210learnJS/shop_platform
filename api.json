@@ -23,7 +23,25 @@
 
                 },
                 "说明":""
+            },
+            "/addToCar":{
+                "接口名称":"/addToCar",
+                "作用":"用来返回购买商品信息",
+                "参数":{
+                    "goodsId":"Number",
+                    "userID" : "Number",
+                    "goodsColor" : "String",
+                    "goodsType" : "String",
+                    "goodsNum" : "Number"
+
+                },
+                "http方法":"POST",
+                "响应":{
+                    "sucess" : true
+                },
+                "说明":"不需要响应结果，只需判断status.code==1"
             }
+
         }
     }   
 }
