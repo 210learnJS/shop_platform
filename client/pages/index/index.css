@@ -1,0 +1,452 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    margin: 0 auto; 
+    /* background-colors:#f5f5f5; */
+    /* width:1200px; */
+    min-width: 600px;
+}
+/* 导航栏样式 */
+.titleNav{
+    margin: 0 auto;
+    /* background-color:#f5f5f5; */
+    height:30px;
+    width:1200px;
+    vertical-align: center;   
+}
+
+.titleNav nav ul li{
+    /* list-style: none; */
+    display:inline-block;
+    position:relative;
+    /* background-color:#fff; */
+}
+.titleNav nav ul ul li{
+    font-size: 4px;
+    white-space: nowrap;
+}
+
+.titleNav nav ul li:hover ul{
+    visibility: visible;
+    z-index: 50;
+    background-color: #fff;
+}
+.titleNav nav ul a{
+    text-decoration: none;
+    color:#000;
+}
+.titleNav nav ul a:hover{
+    color:red;
+    background-color:#f5f5f5;
+}
+
+.titleNav nav ul ul{
+    visibility: hidden;
+    position: absolute;
+}
+.dnav{
+    margin-top: 5px;
+    margin-left:45px;
+}
+.l3{
+    margin-left:85px;
+}
+/* 上部横跨的大图片 */
+.bigPic{
+    width:100%;
+    height:80px;
+}
+
+/* 上部搜索框部分 */
+.top{
+    margin: 0 auto;
+    width:100%;
+    position: relative;
+
+}
+.search{
+    margin: 0 auto;
+    width: 900px;
+    height:auto;
+    position:absolute;
+    margin-left: 300px;
+    margin-top:20px;
+    
+}
+#search{
+    width:400px;
+    height:30px;
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+    border-left: 3px solid red;
+    margin-left: 300px;
+    display: inline-block;
+    position:relative;
+    vertical-align: top;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#button{
+    background:red;
+    width:40px;
+    height:36px;
+    border:1px red solid;
+    outline:none;
+    display: inline-block;
+    position:absolute;
+    margin-left:0px;
+    border-top-right-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+#text{
+    width:100%;
+    height:29px;
+    border:0;
+    outline: none;
+    border-top-left-radius: 14.5px;
+    border-bottom-left-radius: 14.5px;
+}
+.search-links{
+    position: absolute;
+    margin-left:290px;
+}
+.search-links ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left:20px;
+    margin-top:5px;
+    font-size: 12px;
+}
+.search-links ul a{
+    text-decoration: none;
+    color:#000;
+}
+.search-links ul a:hover{
+    color:red;
+    border-bottom: red solid 1px;
+}
+/* 中间横线部分的样式 */
+.center{
+    margin-top:100px;
+    margin-left: 300px;
+    position:relative;
+    width: 900px;
+   
+}
+
+.c{
+    display: inline-block;
+    margin-left:30px;
+    height:30px;
+    text-align: center; width: 60px;
+
+    
+}
+.c2{
+    margin-left:370px;
+    position: absolute;
+}
+.c3{
+    margin-left:480px;
+    /* position: absolute; */
+}
+.c4{
+    margin-left:60px;
+    position: absolute;
+}
+
+.c1{
+    width:250px;
+    background-color:orange;
+    color:#fff;
+    position: absolute;
+}
+.c1 a:hover{
+    color:red;
+}
+.c ul {
+    visibility: hidden;
+    position: absolute;
+    list-style: none;
+} 
+.center a{
+    text-decoration: none;
+    color:#000;
+}
+.center .c2 a:hover,.c3 a:hover,.c4 a:hover{
+    background-color: #f5f5f5;
+    color:red;
+}
+.c2:hover ul{
+    visibility: visible;
+    z-index: 50;
+    background-color: #fff;
+    font-size:10px;
+ 
+}
+.c2:hover ul li{
+    border:1px solid rgb(41, 219, 41);
+}
+.line{
+    border:0.5px solid red;
+    width: 100%;
+}
+/* 主体内容部分的样式设计 */
+.con-wrap{
+    margin: 0 auto;
+    width:1000px;
+    position: relative;
+    margin-left:330px;
+}
+
+.left-nav{
+    width:250px;
+    
+    display: inline-block;
+    /* vertical-align: top; */
+}
+.channel-container{
+    border-left:1px solid #afadad;
+    border-right:1px solid #afadad;
+    border-bottom:1px solid #afadad;
+}
+.channel-left{
+    display: inline-block;
+    width:60px;
+}
+.channel-right{
+    display:inline-block;
+    width:180px;
+    word-break: break-all;
+    font-size: 8px;
+    /* letter-spacing: 3px; */
+}
+.left-nav a{
+    text-decoration: none;
+    color:#000;
+    margin-right:25px;
+}
+.left-nav a:hover{
+    color:red;
+    text-decoration: underline;
+}
+/* 这一部分是在设置鼠标放上去之后右边的div细节显示部分 */
+.channel-detail{
+    display:inline-block;
+    width:300px;
+    word-break: break-all;
+    visibility: hidden;
+    /* display:none; */
+    position: absolute;
+    margin-left:-2px;
+    z-index: 2;
+}
+
+.sub-tags-title a{
+    text-decoration: none;
+    color:#000;
+    font-size:15px;
+    margin-left:22px;
+}
+
+.sub-tags-group a{
+    text-decoration: none;
+    color:#000;
+    font-size:8px;
+    margin-left:22px;
+}
+.channel-detail a:hover{
+    text-decoration: underline;
+    color:red;
+    
+}
+.parent:hover .left-nav{
+    border-left:1px solid  #f00ecd;
+    border-bottom:1px solid  #f00ecd;
+    border-right:0;
+    /* border-right:-1px solid  #f00ecd; */
+    /* margin-right:-1px; */
+}
+.parent:hover .channel-detail{
+    /*这一句代码是与前面的  .channel-detail  中的display:none对应在一起的，两种方式都可以是实现让隐藏的div显示出来 */ 
+    /* display:inline-block;  */
+    visibility: visible;
+    border-right:1px solid  #f00ecd;
+    border-top:1px solid  #f00ecd;
+    border-bottom: 1px solid #f00ecd;
+    border-left: 1px solid #f00ecd;  
+}
+.channel-detail{
+    margin-left:248px;
+    position: absolute;
+    margin-top:-33px;
+    background-color: #fff;
+    z-index: 200;
+}
+.parent{
+    vertical-align: top;
+    position:relative;
+}
+/* 设计中间轮播图部分的样式 */
+.parent-wrap{
+    display: inline-block;
+    position:relative;
+}
+.main-right{
+    display: inline-block;
+    /* width:700px; */
+    position: absolute;
+}
+.lunbotu{
+    
+    position: relative;
+    overflow: hidden;
+    display: inline;
+}
+.lunbotu .banner{
+    position:relative;
+    overflow: hidden;
+   
+}
+.banner #LBT{
+     /* display:inline; */
+     list-style: none;
+     overflow: hidden;
+}
+#LBT li{
+    display:inline-block;
+    list-style: none;
+    float:left;
+    
+}
+#clear{
+    clear:both;
+}
+.right-pic{
+    /* width:200px; */
+    display: inline;
+}
+
+
+/* 修改之后的轮播的样式设计 */
+ul,li{list-style: none;}
+.wraper{
+    margin-top:-253px;
+    margin-left: 253px;
+    position: relative;
+}
+.banner{
+     position: relative;
+     overflow: hidden;
+ }
+.banner .lunbo{
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+.lunbo li{
+    float: left;
+    display: inline;
+     cursor:pointer;     /* 设置鼠标放上去的时候  显示一个小手*/
+
+}
+.btn{
+    position: absolute;
+    left: 250px;
+    bottom: 35px;
+    z-index: 10;
+}
+.btn li{
+    float: left;
+    width:20px;
+    height: 20px;
+    background-color: darkgray ;
+    margin-left: 5px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+     cursor: default;   /* 默认的鼠标样式 */
+    
+
+}
+.wraper .btn .active{
+    background-color:tomato ;
+    
+}
+.prev{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    z-index: 10;
+    opacity: .5;
+}
+.next{
+    position: absolute;
+    left: 485px;
+    top: 50%;
+    z-index: 10;
+    opacity: .5;
+}
+
+
+/* 轮播图右侧两个图片的样式设计 */
+ .right-top-pic{
+     position: relative;
+     margin-top:-280px;
+     margin-left:773px;
+ }
+ .right-bottom-pic{
+    position: relative;
+    margin-top:-4px;
+    margin-left:773px;
+}
+
+
+/* 最右侧登录按钮的样式设计 */
+.right-right{
+    position: relative;
+    width:200px;
+    margin-top:-285px;
+    margin-left: 980px;
+    background-color:rgb(209, 208, 208);
+    border:1px solid #f5f5f5;
+}
+.taobaopic{
+    width: 100%;
+    margin-top:10px;
+}
+.taobaopic img{
+    margin-left:75px;
+}
+.right-right span{
+    margin-left:72px;
+    /* text-align: center */
+    font-size:12px;
+}
+.right-right .span a{
+    text-decoration: none;
+    color:#000;
+}
+.a1{
+    background-color:orange;
+    text-decoration: none;
+    color:#fff;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left:50px;  
+    border:1px solid red;
+    border-radius: 5px;
+}
+.a2{
+    background-color: orange;
+    text-decoration: none;
+    color:#fff;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-left:50px;  
+    border: 1px solid red;
+    border-radius: 5px;
+}
