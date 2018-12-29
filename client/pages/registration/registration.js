@@ -29,8 +29,8 @@ var register = {
     validateUsername: function(tips,iptBor,con){
         if(this.getLength(con)>=4 && this.getLength(con)<=16){
             http.post(PATH +"/registration",param,function(err,data){
-                if(!err ){
-                    if(data.status.code == 0){
+                if(!err){
+                    if(data.result.usernameRe){
                         tips.innerHTML = "用户名已占用，请重新输入";
                         tips.style.color="red";
                         iptBor.style.borderColor = "red";
@@ -51,7 +51,7 @@ var register = {
         if(/1[358][0-9]{9}/.test(con)){
             http.post(PATH +"/registration",param,function(err,data){
                 if(!err){
-                    if(data.status.code == 0){
+                    if(data.result.phoneRe){
                         tips.innerHTML = "手机号已注册，请直接登录";
                         tips.style.color="red";
                         iptBor.style.borderColor = "red";
