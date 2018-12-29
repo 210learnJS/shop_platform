@@ -8,7 +8,62 @@
     <title>注册页</title>
 </head>
 <body>
-    <h1>注册页</h1>
+    <div class="header">
+        <div class="logo-con clearfix">
+            <div class="logo-title">欢迎注册</div>
+            <div class="have-account">
+                已有账号？
+                <a href="http://localhost:8888/pages/login/login.html">请登录></a>
+            </div>
+        </div>   
+    </div>
+    <div class="container">
+        <div class="register-box">
+            <form method="post">
+                <table cellpadding="0" cellspacing="0" border="0" id="table">
+                    <tbody>
+                        <tr>
+                            <td class="t">用户名</td>
+                            <td>
+                                <input type="text" class="text" id="txt-username" placeholder="请输入您的用户名"  name="username">
+                                <span id="spn-username-ok" class="icon-yes" style="display:none;"></span>
+                                <span id="J0" class="cue warn"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="t">手机号码</td>
+                            <td>
+                                <input type="text" class="text" id="txt-phone" placeholder="请输入您的手机号码"  name="phone">
+                                <span id="spn-username-ok" class="icon-yes" style="display:none;"></span>
+                                <span id="J1" class="cue warn"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="t">登录密码</td>
+                            <td>
+                                <input type="password" class="text" id="txt-password" name="password">
+                                <span id="spn-psd-ok" class="icon-yes" style="display:none;"></span>
+                                <span id="J2" class="cue warn"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="t">确认密码</td>
+                            <td>
+                                <input type="text" class="text" id="txt-repassword" name="repassword">
+                                <span id="spn-repsd-ok" class="icon-wrong" style="display:none;"></span>
+                                <span id="J3" class="cue"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                        
+                </table>
+            </form>   
+            <div id="btn-register" >立即注册</div>
+        </div>
+    </div>
+
+
+
 </body>
     <script src = "http://localhost:8888/util/http.js"></script>
     <script src = "http://localhost:8888/pages/registration/registration.js"></script>

@@ -20,3 +20,35 @@
 //         }
 //     });
 // });
+
+var { PATH, PORT } = constant;
+var ipt = document.getElementsByTagName('input');
+var account = ipt[0];
+var password = ipt[1];
+var btn = document.getElementById('btn');
+
+function verify(name,pwd){
+    if(name==""||pwd==""){
+        return false;
+    }
+    return true;
+}
+
+btn.addEventListener('click',function(){
+    var param = {
+        username: ipt[0].value,
+        password: ipt[1].value,
+    }
+    if(verify(param.username,param.password)){
+        http.post( PATH +"/search", param,function(err,data){
+            if(!err && data.status.code !=0){
+                window.location.href = 'http://localhost:8888/pages/index/index.html';
+            }else {
+                alert("用户名不存在或密码错误，请重新输入");
+            }
+        })
+    }else{
+        alert("输入不能为空");
+    }
+})
+

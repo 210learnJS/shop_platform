@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    height: 110px;
+}
+.logo-con{
+    position: relative;
+    width: 960px;
+    margin: 0 auto;
+    padding-top: 2px;
+    border-bottom: 3px solid #f07700;;
+
+}
+.logo-title{
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    font-size: 24px;
+    color: #333;
+    margin-top: 34px;
+    margin-left: 10px;
+    
+}
+.have-account{
+    float: right;
+    font-size: 16px;
+    margin-top: 55px;
+    margin-bottom: 5px;
+    color: #999;
+}
+.have-account a{
+    color: #e22;
+    text-decoration: none;
+}
+.clearfix:after{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.container{
+    margin: 0 auto;
+    width: 960px;
+    padding-top: 40px;
+}
+table{
+    margin: 0 auto;
+}
+.register-box .t {
+    font-size: 15px;
+    padding-right: 10px;
+    text-align: right;
+    vertical-align: top;
+    color: #646464;
+    padding-top: 8px;
+    font-family: 'Microsoft YaHei';
+}
+.register-box table td {
+    padding: 0 0 30px;
+    position: relative;
+}
+.register-box .text{
+    border: 1px solid #e6e6e6;
+    font-family: 'Microsoft YaHei';
+    height: 18px;
+    float: left;
+    width: 290px;
+    margin-right: 10px;
+    padding: 9px 10px;
+    line-height: 18px;
+    outline: 0 none;
+    border-radius: 2px;
+    color: #333;
+}
+.register-box .text:focus {
+    color: #505050;
+    border-color: #969696;
+}
+.icon-yes,
+.icon-wrong{
+    margin-top: 14px;
+    width: 16px;
+    height: 16px;
+    background: url(../registration/icon.png) 0 -40px no-repeat;
+} 
+/* .register-box .warn {
+    color: #787878;
+} */
+.register-box .cue{
+    color: #787878;
+    font-size: 12px;
+    display: block;
+    line-height: 14px;
+    padding: 0 4px;
+    margin-right: 5px;
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+}
+#btn-register{
+    display: inline-block;
+    font-size: 20px;
+    border: 0;
+    width: 170px;
+    height: 44px;
+    line-height: 44px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #ff2832;
+    color: #fff;
+    border-radius: 22px;
+    margin: 50px 395px 0 395px;
+}

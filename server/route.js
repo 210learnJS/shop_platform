@@ -21,7 +21,7 @@ route.get('/update', update);
 
 //search
 route.get('/search', search);
-
+route.post('/search', search);
 //search
 route.get('/login', login);
 route.post('/login', login);

@@ -6,9 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="http://localhost:8888/pages/login/login.css" rel="stylesheet" type="text/css"/>
     <title>登录页</title>
+
+    
 </head>
 <body>
-    <h1>登录页</h1>
+    <div class="nav"></div>
+    <div id="content">
+        <div class="login-box-wrap">
+            <div class="login-title">密码登录</div>
+            <form method="POST">
+                <div class="login-account">
+                    <img src="../login/account.jpg" alt=""><input type="text" placeholder="会员名/邮箱/手机号">
+                </div>
+                <div class="login-password">
+                    <img src="../login/password.jpg" alt=""><input type="text" id="pwd">
+                </div>
+                <div class="submit">
+                    <input type="button" id="btn" value="登录"/>
+                </div>
+                <div class="login-links">
+                    <a href="http://localhost:8888/pages/login/login.html">忘记密码</a>
+                    <a href="http://localhost:8888/pages/registration/registration.html">免费注册</a>
+                </div>  
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>  
 </body>
     <script src = "http://localhost:8888/util/constant.js"></script>
     <script src = "http://localhost:8888/util/http.js"></script>
