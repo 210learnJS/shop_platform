@@ -16,9 +16,6 @@ window.onload = function () {
             goodsSinglePrice: goodsInfo.goodsSinglePrice,
             goodsFare: goodsInfo.goodsFare
         }
-
-
-
         //存放节点
         var Dom = {
             smallImg: document.getElementById('smallImg'),
@@ -33,7 +30,6 @@ window.onload = function () {
             buyNow: document.getElementById('buyNow'),
             addInto: document.getElementById('addInto')
         }
-
         var itemDiv = document.getElementsByClassName('select-item');
         var goodsPrice = document.getElementById('goodsPrice');
         var goodsPalce = document.getElementById('goodsPlace');

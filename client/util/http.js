@@ -55,7 +55,13 @@ function Http(){
             }
         }
         xhr.open("POST",url, true);
-        xhr.send(param);
+        
+        //xhr.setRequestHeader("Content-Type", "application/json");
+        //xhr.send(JSON.stringify(param) );
+
+        //xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded;charset=UTF-8");
+        //xhr.send("username=11&password=11");
+        xhr.send(JSON.stringify(param));
     }
 
     Http.prototype.jsonp = function(url, param, callback = ()=>{}){

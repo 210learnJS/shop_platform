@@ -3,8 +3,7 @@ const fs = require('fs');
 const mysql = require("../database/mysql.js");
 const Res = require('../util/res.js');
 const { successRes, errorRes } = Res;
-const { USER_TABLE } = require('../constants/constant.js');
-const { goodsTable, commentTable } = JSON.parse(fs.readFileSync("./server/database/mysql_config.json")).tableList;
+const { goodsTable, commentTable ,USER_TABLE} = JSON.parse(fs.readFileSync("./server/database/mysql_config.json")).tableList;
 
 function getRequst(ctx) {
   ctx.set('Access-Control-Allow-Origin', '*');
@@ -12,7 +11,7 @@ function getRequst(ctx) {
   if (ctx.method === 'GET') {
     param = ctx.request.query;
   } else {
-    param = ctx.request.body;
+    param = JSON.parse(ctx.request.body);
   }
   var isJsonp = false;
   if (typeof param.callback !== "undefined") {
@@ -36,15 +35,12 @@ function getRequst(ctx) {
   return outputObj;
 }
 //将字符串转换为数组
-function transAry(obj,attributeList){
-  for(let i=0;i<attributeList.length;i++){ 
-    // console.log(obj[0]);
-    //  console.log(obj[0][attributeList[i]]);
-     obj[0][attributeList[i]]=obj[0][attributeList[i]].split(",");
-    //  console.log(typeof obj[0][attributeList[i]]);
+function transAry(obj, attributeList) {
+  for (let i = 0; i < attributeList.length; i++) {
+    obj[0][attributeList[i]] = obj[0][attributeList[i]].split(",");
   }
   return obj;
-  }
+}
 //登录
 async function usernameExist(ctx, next) {
   try {
@@ -53,39 +49,44 @@ async function usernameExist(ctx, next) {
       username: param.username
     }
     const result = await mysql.search(USER_TABLE, obj);
-    const response = result ? successRes(result) : errorRes('搜索数据失败');
+    const response = result.length>0? successRes(result) : errorRes('搜索数据失败');
     return response;
   } catch (err) {
-    return err;
+    return errorRes(err);
   }
 }
 async function login(ctx, next) {
   try {
     const { param } = getRequst(ctx);
-    let response = usernameExist.apply(this, arguments);
+    let response = await usernameExist.apply(this, arguments);
+    let re = {
+      usernameExist: false,
+      passwordOK: false
+    };
     if (response.status.code == 1) {
-      if (response.result.password == param.password) {
-        ctx.body = successRes(true);
-      }
-      else {
-        ctx.body = errorRes("密码错误");
+      console.log("用户名存在");
+      re.usernameExist = true;
+      if (response.result[0].password === param.password) {
+        re.passwordOK = true;
+        console.log("登陆密码正确");
       }
     }
-    else {
-      ctx.body = response;
-    }
-}catch(err){
-  return console.log(err);
+      ctx.body = successRes(re);
+  } catch (err) {
+    return console.log(err);
+  }
 }
-}
+
+
+
 //商品详情页
 async function getGoodsInfo(ctx, next) {
   try {
-  
+
     const { param } = getRequst(ctx);
     const table = goodsTable;
     let result = await mysql.search(table, param);
-    result=transAry(result,["goodsColor","goodsSize","goodsImgUrl"]);
+    result = transAry(result, ["goodsColor", "goodsSize", "goodsImgUrl"]);
     console.log(result);
     const response = result ? successRes(result) : errorRes('搜索数据失败');
     ctx.body = response;

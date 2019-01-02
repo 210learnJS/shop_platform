@@ -15,11 +15,11 @@ const app = new Koa();
 // 静态资源目录对于相对入口文件index.js的路径
 const staticPath = '../client';
 
+app.use(Bodyparser());
 app.use(static(
   path.join( __dirname,  staticPath)
 ));
 
-app.use(Bodyparser());
 app.use(Logger());
 app.use(koaBody({
   multipart: true,
