@@ -1,8 +1,17 @@
+ var picUrl =[
+     "http://localhost:8888/pages/index/images/indexPage-02.png",
+     "http://localhost:8888/pages/index/images/indexPage-03.png",
+     "http://localhost:8888/pages/index/images/indexPage-04.png",
+     "http://localhost:8888/pages/index/images/indexPage-05.png",
+     "http://localhost:8888/pages/index/images/indexPage-09.png",
+     "http://localhost:8888/pages/index/images/indexPage-07.png",
+ ];
 window.onload = function(){
     var $banner=document.getElementsByClassName('banner')[0]
         var imgs=$banner.getElementsByTagName('img');
         var w=imgs[1].width;//图片的宽度
         var h=imgs[1].height;
+        
         var count=0;//标记值
         var timer;//定时器       
         //设置banner的宽高
@@ -12,7 +21,9 @@ window.onload = function(){
         //获取图片的个数
         var len=imgs.length;
         console.log(len);
-        
+        for(var x =0;x<len;x++){
+            imgs[x].src = picUrl[x];
+        }
         // //动态添加btn
         // var btn=document.getElementsByClassName('btn')[0]
         // for(var i=0;i<len;i++){
