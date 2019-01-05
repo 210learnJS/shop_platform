@@ -7,7 +7,7 @@ const static = require('koa-static');
 const koaBody = require('koa-body');
 
 const constant = require('./constants/constant.js');
-const route = require('./router.js');
+const route = require('./route.js');
 
 const SERVER_PORT = constant.SERVER_PORT;
 const app = new Koa();
