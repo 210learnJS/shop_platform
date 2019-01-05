@@ -1,13 +1,13 @@
 
 const Koa = require('koa');
 const Logger = require('koa-logger');
-const Bodyparser = require('koa-bodyparser');
+//const Bodyparser = require('koa-bodyparser');
 const path = require('path');
 const static = require('koa-static');
 const koaBody = require('koa-body');
 
 const constant = require('./constants/constant.js');
-const route = require('./route.js');
+const route = require('./router.js');
 
 const SERVER_PORT = constant.SERVER_PORT;
 const app = new Koa();
@@ -17,7 +17,7 @@ app.use(static(
   path.join( __dirname,  staticPath)
 ));
 
-app.use(Bodyparser());
+//app.use(Bodyparser());
 app.use(Logger());
 app.use(koaBody({
   multipart: true,

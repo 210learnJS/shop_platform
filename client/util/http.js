@@ -55,7 +55,7 @@ function Http(){
             }
         }
         xhr.open("POST",url, true);
-        xhr.send(param);
+        xhr.send(JSON.stringify(param));
     }
 
     Http.prototype.jsonp = function(url, param, callback = ()=>{}){
