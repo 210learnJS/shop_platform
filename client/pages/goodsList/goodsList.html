@@ -8,7 +8,51 @@
     <title>商品列表页</title>
 </head>
 <body>
-    <h1>商品列表页</h1>
+    <div class="homeNav"></div>
+    <header id="head">
+    
+        <div class="platLogo">柚~子</div>
+        <div class="inputSear">
+            <input type="text" id="inputSearch" placeholder="搜索 商品/店铺/品牌"><input type="submit" value="搜索" id="subButt">
+        </div>
+        
+    </header>
+    <nav>
+        <div class="navChoose">
+            <div class="pernavChoose" id="brand">
+                <div class="choose_title"><div class="title_name">品牌</div></div>
+                <div class="brand_list">
+                      <div class="logo" id="logo1"></div><div class="logo" id="logo2"></div><div class="logo" id="logo3"></div><div class="logo" id="logo4"></div><div class="logo" id="logo5"></div><div class="logo" id="logo6"></div><div class="logo"  id="logo7"></div><div class="logo" id="logo8"></div><div class="logo" id="logo9"></div><div class="logo" id="logo10"></div><div class="logo" id="logo11"></div><div class="logo" id="logo12"></div><div class="logo" id="logo13"></div><div class="logo" id="logo14"></div>
+                </div>
+                <div class="multiChoice">多选</div>
+                <div class="more">更多</div>
+            </div>
+            <div class="pernavChoose" id="texture"></div>
+        </div>
+    </nav>
+    <article class="goodsList_wrapper">
+        <section id="sortMethod">
+            <div id="compreRank" class="rank">
+                <div class="sort">综合</div><div class="sort">人气</div><div class="sort">新品</div><div class="sort">销量</div><div class="sort">价格</div>
+            </div>
+            <div id="delivAddr" class="rank">
+                <div class="greyBack">收货地：</div>
+                <input type="text" id="addr" value="南京"></input>
+                <div class="addr_choice_logo"></div>
+                <div id="addr_choice"></div>
+            </div>
+            <div id="priceRange" class="rank">
+                <input class="priceEnd" placeholder="￥请输入"></input>
+                <div id="line_logo" >-</div>
+                <input class="priceEnd"  placeholder="￥请输入"></input>
+            </div>
+        </section>
+        <section id="goodsList"></section>
+        <section id="pageNav"></section>
+        <section id="relativeNav"></section>
+    </article>
+    <footer></footer>
+
 </body>
     <script src = "http://localhost:8888/util/http.js"></script>
     <script src = "http://localhost:8888/pages/goodsList/goodsList.js"></script>

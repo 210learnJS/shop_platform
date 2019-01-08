@@ -1,0 +1,54 @@
+
+{
+
+    "pages": {
+
+        "goodsList":{
+
+            "/goodsList":{
+
+                "接口名称":"/goodsList",
+
+                "作用":"渲染与搜索信息的相关的内容",
+
+                "参数":{
+
+                    "goodsType":"String"
+   
+                },
+
+                "http方法":"POST",
+
+                "响应":{
+
+                    "OK": "Boolean",
+
+                    "errorInf":"未找到相关信息",
+
+                    "brand_imagesArray":["url"],
+
+                    "goods_attrArray":[{
+                        "pic":["url"],
+
+                        "price":"Number",
+
+                        "goodsintro":"String",
+
+                        "shopName":"String",
+
+                        "turnOver":"Number",
+
+                        "judgeNumber":"Number"
+                    }]
+
+                },
+
+                "说明":""
+
+            }
+
+        }
+
+    }
+
+}
