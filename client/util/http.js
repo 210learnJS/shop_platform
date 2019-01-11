@@ -5,7 +5,6 @@
 */
 
 function Http(){
-
     function getParamStr(param){
         var str = "?";
         for(var o in param){
@@ -14,86 +13,85 @@ function Http(){
         str = str.slice(0, str.length-1);
         return str;
     }
-
+    function creatCorsRequest(method,url){
+        var xhr = new XMLHttpRequest();
+        if("withCredentials" in xhr){
+            xhr.open(method,url,true);
+        }else if(typeof XDomainRequest != "undefined"){
+            xhr.open(method,url)
+        }else{
+            xhr = null
+        }
+        return xhr;
+    }
+    function isFun(callback){
+        return typeof callback === "function";
+    }
     Http.prototype.get = function(url, param, callback = ()=>{}){
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
-                if(xhr.status == 200 ){
+                if(xhr.status ==200 ){
                     var obj = JSON.parse(xhr.responseText);
-                    callback(null, obj);
-                }
-                else{
-                    callback("error");
+                    isFun(callback)&&callback(null, obj);
+                }else{
+                    isFun(callback)&&callback("error");
                 }
             }
         }
-        xhr.open("get",url+getParamStr(param), true);
+        xhr.open("GET",url+getParamStr(param), true);
         xhr.send(null);
     }
-
     Http.prototype.post = function(url, param, callback = ()=>{}){
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){
                 if(xhr.status ==200 ){
                     var obj = JSON.parse(xhr.responseText);
-                    callback(null, obj);
-                }
-                else{
-                    callback("error");
+                    isFun(callback)&&callback(null, obj);
+                }else{
+                    isFun(callback)&&callback("error");
                 }
             }
         }
-        xhr.open("post",url, true);
-        xhr.send(param);
+        xhr.open("POST",url, true);
+        xhr.send(JSON.stringify(param));
     }
 
     Http.prototype.jsonp = function(url, param, callback = ()=>{}){
-        function handleResponse(response){
-            console.log(response);
+        function handleResponse(data){
+            isFun(callback)&&callback(null, data);
         }
-        var scriptHandleResponse = document.createElement("script");
-        scriptHandleResponse.innerHTML = handleResponse;
-        document.body.insertBefore(scriptHandleResponse, document.body.firstChild);
-
+        window.handlejsonpResponse = handleResponse;
         var script = document.createElement("script");
-        param = Object.assign({callback: "handleResponse"}, param);
+        param = Object.assign({callback: "handlejsonpResponse"}, param);
         script.src = url + getParamStr(param);
         document.body.insertBefore(script,document.body.lastChild);
-        
-        document.body.removeChild(scriptHandleResponse);
         document.body.removeChild(script);
     }
 
-    Http.prototype.cors = function(url, param, callback = ()=>{}){
-        
-        function creatCorsRequest(method,url){
-            var xhr = new XMLHttpRequest();
-            
-            if("withCredentials" in xhr){
-                xhr.open(method,url,true);
-            }else if(typeof XDomainRequest != "undefined"){
-                xhr.open(method,url)
-            }else{
-                xhr = null
-            }
-            // xhr.setRequestHeader('X-PINGOTHER', 'pingpong');
-            // xhr.setRequestHeader('Content-Type', 'application/xml');
-
-            return xhr;
-        }
+    Http.prototype.corsGet = function(url, param, callback = ()=>{}){
         var xhr = creatCorsRequest('GET',url+getParamStr(param));
         xhr.onload = function(){
-            var text = xhr.responseText;
-            console.log('cors success')
-            callback(null, text);
+            var obj = JSON.parse(xhr.responseText);
+            isFun(callback)&&callback(null, obj);
         };
         xhr.onerror = function(){
-            console.log('cors fail')
-            callback("error");
+            isFun(callback)&&callback("error");
         };
         xhr.send();
+    } 
+
+    Http.prototype.corsPost = function(url, param, callback = ()=>{}){
+        var xhr = creatCorsRequest('POST',url);
+        xhr.onload = function(){
+            var obj = JSON.parse(xhr.responseText);
+            isFun(callback)&&callback(null, obj);
+        };
+        xhr.onerror = function(){
+            isFun(callback)&&callback("error");
+        };
+        xhr.send(param);
     } 
 
 }
