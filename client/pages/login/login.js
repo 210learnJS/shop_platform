@@ -26,26 +26,27 @@ btn.addEventListener('click',function(){
     }
     if(verify(param.username,param.password)){
         http.post( PATH +"/login", param,function(err,data){
-            // if(!err && data.status.code !=0){
-            //     window.location.href = 'http://localhost:8888/pages/index/index.html';
-            // }else {
-            //     alert("用户名不存在或密码错误，请重新输入");
-            // }
             if(!err){
                 if(data.result.usernameExist){
-                   if(data.result.passwordOk){
-                    window.location.href = 'http://localhost:8888/pages/index/index.html';
+                   if(data.result.passwordOK){
+                        $.cookie("userid",data.result.userID,{expires:7,path:'/'});
+                        tips.innerHTML = "";
+                        tips.style.display = "none";
+                        window.location.href = 'http://localhost:8888/pages/index/index.html';
                    }else{
-                       tips.innerHTML = "密码错误";
-                       tips.className = "warn";
+                        tips.style.display = "block";
+                        tips.innerHTML = "密码错误";
+                        tips.className = "warn";
                    }
                 }else{
+                    tips.style.display = "block";
                     tips.innerHTML = "用户名不存在";
                     tips.className = "warn";
                 }
             }
         })
     }else{
+        tips.style.display = "block";
         tips.innerHTML = "输入不能为空";
         tips.className = "warn";
     }
