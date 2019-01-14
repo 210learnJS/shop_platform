@@ -25,9 +25,8 @@
                     "username":"String",
                     "realname":"String",
                     "sex":"String",
-                    "birthday":"Number",
-                    "residence":"String",
-                    "nativeland":"String"
+                    "birthday":"Array",
+                    "residence":"Array",
             },
             "http方法":"POST",
             "响应":{
@@ -37,19 +36,18 @@
         },
             "/getInfo":{
                 "接口名称":"/getInfo",
-                "作用":"用来获取地址",
+                "作用":"用来保存个人资料",
                 "参数":{
-                    "provinceI":"String",
-                    "cityI":"String"
-                },
-                "http方法":"POST",
-                "响应":{
-                    "cityO":"Array",
-                    "areaO":"Array"
-                },
-                "说明":""
-            }
+            },
+            "http方法":"GET",
+            "响应":{
+                "province":"Array",
+                "city":["","","","",""],
+                "area":[],
+                "nName":"String"   
+            },
+            "说明":""
         }
-        
+        }
     }
 }

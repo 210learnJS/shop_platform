@@ -1,0 +1,366 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*导航栏*/
+.nav{
+    height: 35px;
+}
+.header{
+    position: relative;
+    padding: 12px 0;
+    height: 36px;
+    background: #ff4401;
+    border-bottom: 1px #e7e7e7 solid;
+    z-index: 5;
+}
+
+.header-content{
+    height: 36px;
+    margin: 0 auto;
+    width:  1154px;
+}
+.logo{
+    float: left;
+    width: 140px;
+    height: 36px;
+}
+.logo a{
+    color: #fff;
+    font: 27px  bold;
+    font-family: 微软雅黑,Serif;
+    line-height: 36px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+.mainNav{
+    position: relative;
+    float: left;
+    height: 36px;
+    margin-left:  52px; 
+}
+.mainNav ul{
+    list-style-type: none;
+}
+.mainNav li{
+    float: left;
+    cursor: pointer;
+    z-index: 1;
+}
+.mainNav .a{
+    display: block;
+    padding: 0 25px;    
+    text-decoration: none;
+    color: #fff;
+    font:400 15px/41px tahoma;
+}
+.mainNav i.arrow1{
+    position: absolute;
+    left: 17.7%;
+    top: 35.7px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px;
+    border-color: #ff4401 #ff4401 #fff;
+    line-height: 0;
+    font-size: 0;
+    box-shadow: 0 1px 0 #fff;
+}
+.mainNav .selected i{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    top: 18px;
+    left: 83.5%;
+}
+
+.mainNav .selected em,
+.mainNav .selected s{
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    top: 0;
+    border-color: rgba(255,255,255,0);
+    border-color: transparent\0;
+    *border-color: transparent;
+    _border-color: tomato;
+    _filter: chroma(color=tomato);
+    border-style: solid;
+    overflow: hidden;
+    *zoom: 1;
+    border-width: 3px 3px 0;
+}
+.mainNav .selected em{
+    top: 2px;
+    border-top-color: #fff;
+}
+.mainNav .selected s{
+    border-top-color: #ff4401;
+}   
+/*浮动选择*/
+.mainNav .selected{
+    position: relative;
+}
+.hide{
+    position: absolute;
+    left: -156%;
+    top: 99%;
+    z-index: 999;
+    width: 470px;
+    padding: 18px 0;
+    border: 1px solid #e1e1e1;
+    background: #fff;
+    box-shadow: 0 1px 2px #ddd;
+}
+.arrow2{
+    position: absolute;
+    left: 46%;
+    top: -8.3%;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 8px solid;
+    border-color:transparent transparent #fff;
+    box-shadow: 0 1px 0 #fff;
+}
+.hide dl{
+    float: left;
+    width: 33%;
+}
+.hide dl dt{
+    font-size: 16px;
+    padding-left: 38px;
+}
+.hide dl dd{
+    padding-top: 10px;
+}
+.hide a{
+    display: block;
+    padding: 0;
+    padding-left: 38px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 13px;
+    font-weight:  400;
+    color: #000;
+    text-align: left;
+    text-decoration: none;
+}
+.hide a:hover{
+    color: #ff4401;
+}
+.hide .col1{
+    color: #3aac8a;
+}
+.hide .col2{
+    color: #ea746b;
+}
+.hide .col3{
+    color: #398ee8;
+}
+/************主页**********/
+/*侧边*/
+.body{
+    width: 990px;
+    margin: 0 auto;
+    padding: 25px 0 40px 0;
+}
+.body:after{
+    content: "020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.body .aside{
+    float: left;
+    width: 110px;
+    margin-right: 30px;   
+}
+.aside p{
+    padding-top: 8px;
+    color: #ff4401;
+}
+.aside-select{
+    margin-top: 10px;
+    padding-left: 3px;
+}
+.aside-select li {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+.aside-select li a{
+    font-size: 14px;
+    text-decoration: none;
+    color: #000;
+}
+.aside-select li a:hover{
+    color: #ff4401;
+}
+.aside-select .homepage a{
+    color: #ff4401;
+}
+/*中间*/
+.main{
+    float: left;
+    width: 850px; 
+    margin-top: 10px;
+}
+.tab{
+    position: relative;
+    z-index: 1;
+} 
+.tab ul{
+    border-bottom: 1px solid #dcdcdc;
+    padding-left: 10px;
+    margin-bottom: -1px;
+    list-style-type: none;
+}
+.tab ul li{
+    display: inline-block; 
+    position: relative;
+    height: 25px;
+    z-index: 10;
+    margin: 0 3px;
+}
+.tab ul li a{
+    display: inline-block;
+    line-height: 25px;
+    padding: 0 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.tab-title{
+    border: 1px solid #DCDCDC;
+    border-bottom: 0;
+    background-color: #fff;
+}
+.tab-select{
+    border-left: 1px solid #DCDCDC;
+    border-right: 1px solid #DCDCDC;
+    padding: 5px 10px;
+}
+.tab-select:after{
+    content: "020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.tab-select li{
+    float: left;
+    border: 0;
+    margin-bottom: 0;
+    background: 0 0; 
+}
+.tab-select .tab-title span{
+    color: #666;
+    border: 0;
+}
+.tab-select .hover a:hover{
+    border: 1px solid #DCDCDC;
+}
+
+.box{
+    border: 1px solid #DCDCDC;
+    padding: 20px 44px;
+}
+
+.parts{
+    margin: 10px 0;
+    font: 12px/1.5 tahoma,arial,\5b8b\4f53,sans-serif;
+    border-bottom: 1px solid #DCDCDC;
+}
+.saveS{
+    padding-left: 0;
+    color: #3aac8a;
+    font-weight: 700;
+}
+.parts p{
+    position: relative;
+    padding-left: 6em;
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+.parts label{
+    position: absolute;
+    left: 0;
+    vertical-align: middle;
+    height: 26px;
+    line-height: 26px;
+    display: block;
+}
+.parts .avater{
+    display: inline-block;
+    position: relative;
+    border: 3px solid #e6e6e6;
+    width: 80px;
+    height: 80px;
+}
+.parts .avater-img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+    text-align: center;
+}
+.parts .avater-edit{
+    background: #000;
+    background-position: 10px 6px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 21px;
+    line-height: 21px;
+    text-align: center;
+    color: #e1d7ca;
+    opacity: .7;
+}
+.parts label em{
+    color: #999;
+    position: absolute;
+    left: -12px;
+    top: 4px;
+}
+.parts .nn-text{
+    padding: 5px;
+    border: 1px solid #cecece;
+    width: 320px;
+}
+.parts .input-help-text{
+    line-height: 12px;
+    color: #999;
+}
+.parts .rn-text{
+    padding: 5px;
+    border: 1px solid #cecece;
+    width: 136px;
+}
+.parts .except{
+    width: auto;
+    margin-right: 10px;
+    position: static;
+    display: inline;
+}
+.parts .except input{
+    margin-right: 3px;
+}
+.ipt-save{
+    margin-left: 6em;
+    display: block;
+    color: #fff;
+    padding: 0 11px;
+    background-color: #ff4401;
+    border: 0;
+    cursor: pointer;
+    line-height: 22px;
+    height: 22px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
