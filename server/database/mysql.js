@@ -2,7 +2,7 @@
  * @Author: GuoWei
  * @Date: 2018-12-25 22:20:04
  * @LastEditors: GuoWei
- * @LastEditTime: 2019-01-02 21:03:00
+ * @LastEditTime: 2019-01-14 15:09:23
  * @Description: 
  */
 const mysql = require('mysql');
@@ -122,7 +122,8 @@ async function search(table, data) {
             resolve(result);
         })
     });
-    console.log("成功拿到数据"+result);
+    console.log("成功拿到数据");
+    // console.log(result);
     return result;
 }
 

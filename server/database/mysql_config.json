@@ -6,8 +6,8 @@
         "database": "shopplatform"
     },
     "tableList":{
-        "goodsTable":"goods_table",
-        "commentTable":"comment",
+        "GOODS_TABLE":"goods_table",
+        "COMMENT_TABLE":"comment",
         "USER_TABLE":"user_table"
     }
     

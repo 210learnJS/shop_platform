@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    height: 35px;
+    position: relative;
+    vertical-align: middle;
+    background-color: beige;
+}
+
+nav ul {
+    height: 35px;
+    list-style: none;
+   
+}
+
+nav ul li {
+    width: 80px;
+    height: 35px;
+    display: inline-block;
+    line-height: 35px;
+
+}
+nav ul li a{
+    height: 35px;
+    text-decoration: none;
+    
+}
+nav .nav-l {
+    position: absolute;
+    left: 240px;
+}
+nav .nav-r {
+    position: absolute;
+    right: 240px;
+}
